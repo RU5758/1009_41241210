@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.card-container {
+    perspective: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 50mm;
+    height: 70mm;body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.card-container {
+    display: grid;
+    gap: 10px; /* 卡牌之間的間距 */
+    justify-items: center; /* 居中排列 */
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 100px; /* 設定卡牌的寬度 */
+    height: 100px; /* 設定卡牌的高度 */
+    perspective: 1000px; /* 使卡牌有立體感 */
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border: 1px solid #ccc; /* 卡牌邊框 */
+    border-radius: 5px; /* 卡牌圓角 */
+}
+
+.card-back {
+    transform: rotateY(180deg); /* 背面旋轉180度 */
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg); /* 翻轉至背面 */
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0); /* 翻轉至正面 */
+}
+
+.card.matched {
+    animation: fadeOut 0.5s forwards; /* 配對成功時的淡出效果 */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1; /* 開始時完全可見 */
+    }
+    100% {
+        opacity: 0; /* 結束時完全隱藏 */
+        transform: scale(0); /* 縮小至0，模擬消失效果 */
+    }
+}
+
+#timer {
+    margin: 20px;
+    font-size: 24px;
+}
+
+    margin: 10mm;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-front {
+    background-color: purple; /* 設定正面的顏色為紫色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back {
+    background-color: #333333;
+    color: #ffffff;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    perspective: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 列 */
+    grid-template-rows: repeat(4, 1fr); /* 4 行 */
+    gap: 10px; /* 卡牌之間的間距 */
+    justify-items: center; /* 居中排列 */
+    align-items: center;
+}
+
+
+#timer {
+    margin: 20px;
+    font-size: 24px;
+}
